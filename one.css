@@ -1,0 +1,89 @@
+.{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius:75%;
+}
+body{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:left;
+    align-items: left;
+    min-height: 100vh;
+    background:greenyellow;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+.silde-container{
+    position: relative;
+    width: 800px;
+    height: 400px;
+    perspective: 10000px;
+
+}
+.silder{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style:preserve-3d;
+    animation: rotate 40s infinite linear;
+}
+.silde{
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    left: 20%;
+    top: 10%;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform-style: preserve-3d;
+    transition: transfer 1s;
+}
+.silde img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 75%;
+
+}
+.silde:nth-child(1){
+    transform: rotateY(0deg) translateZ(400px); 
+
+}
+.silde:nth-child(2){
+transform: rotateY(90deg) translateZ(400px); 
+}
+.silde:nth-child(3){
+    transform: rotateY(180deg) translateZ(400px); 
+
+}
+.silde:nth-child(4){
+transform: rotateY(270deg) translateZ(400px); 
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotateY(0deg);
+
+    }
+    25%{
+        transform: rotateY(90deg);
+    }
+    50%{
+        transform: rotateY(180deg);
+    }
+    75%{
+        transform: rotateY(270deg);
+
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+
+
+}
+.silde-container:hover.silder{
+    animation-play-state: paused;
+}
